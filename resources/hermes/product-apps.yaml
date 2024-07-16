@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/oleksandr-codefresh/product-apps.git
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
     path: product-apps
     targetRevision: hermes-prod-git-sources
     directory:
