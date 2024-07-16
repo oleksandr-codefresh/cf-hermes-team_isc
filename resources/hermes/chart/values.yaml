@@ -1,0 +1,18 @@
+gitops-runtime:
+  global:
+    codefresh:
+      accountId: 669622463f08406c4055afcb
+      userToken:
+        secretKeyRef:
+          name: codefresh-user-token
+          key: token
+    runtime:
+      ingress:
+        className: nginx-public
+        enabled: true
+        hosts:
+          - hermes-team-prod.rnd.sandbox.codefresh.io
+        protocol: https
+      name: hermes
+  installer:
+    skipValidation: true
