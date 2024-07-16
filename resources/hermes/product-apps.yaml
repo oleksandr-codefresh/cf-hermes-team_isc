@@ -11,8 +11,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/oleksandr-codefresh/product-apps.git
-    path: .
-    targetRevision: HEAD
+    path: product-apps
+    targetRevision: hermes-prod-git-sources
     directory:
       include: '*'
       exclude: ''
