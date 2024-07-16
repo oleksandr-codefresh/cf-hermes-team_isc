@@ -1,3 +1,4 @@
+# source: https://github.com/eti-codefresh/promotion-demo-templates/blob/main/base-flow3.yaml
 apiVersion: codefresh.io/v1beta1
 kind: PromotionFlow
 metadata:
