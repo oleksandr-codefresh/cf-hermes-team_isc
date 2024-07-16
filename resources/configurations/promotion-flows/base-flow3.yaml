@@ -1,0 +1,25 @@
+apiVersion: codefresh.io/v1beta1
+kind: PromotionFlow
+metadata:
+  name: base-flow3
+  annotations:
+    version: 0.0.1
+    description: 'base-flow3'
+spec:
+  triggerEnvironment: my-env
+  postTrigger: 'post-action-failed'
+  steps:
+  - environment: staging
+    dependsOn:
+    - my-env
+    policy:
+      preAction: 'pre-action'
+      postAction: 'post-action-failed'
+      action: commit 
+  - environment: production
+    dependsOn:
+    - staging
+    policy:
+      preAction: 'pre-action'
+      postAction: 'post-action'
+      action: commit
