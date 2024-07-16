@@ -14,5 +14,6 @@ gitops-runtime:
           - hermes-team-prod.rnd.sandbox.codefresh.io
         protocol: https
       name: hermes
+      isConfigurationRuntime: true
   installer:
     skipValidation: true
