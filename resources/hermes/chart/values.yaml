@@ -57,6 +57,8 @@ gitops-runtime:
         repository: xeonalex/personal-argocd-dev
         tag: 2.12-revisions-15
       replicas: 1
+    acrController:
+      enabled: true
   app-proxy:
     replicaCount: 1
     config:
