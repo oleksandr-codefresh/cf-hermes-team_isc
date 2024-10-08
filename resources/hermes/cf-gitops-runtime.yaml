@@ -17,7 +17,7 @@ spec:
     namespace: hermes
     server: https://kubernetes.default.svc
   syncPolicy:
-    automated:
-      allowEmpty: true
-      prune: true
-      selfHeal: false
+#    automated:
+#      allowEmpty: true
+#      prune: true
+#      selfHeal: false
