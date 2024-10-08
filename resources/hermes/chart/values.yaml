@@ -59,6 +59,13 @@ gitops-runtime:
       replicas: 1
     acrController:
       enabled: true
+      env:
+        - name: ARGOCD_SERVER_ROOTPATH
+          valueFrom:
+            configMapKeyRef:
+              key: server.rootpath
+              name: argocd-cmd-params-cm
+              optional: true
   app-proxy:
     replicaCount: 1
     config:
