@@ -1,0 +1,13 @@
+apiVersion: codefresh.io/v1beta1
+kind: Product
+metadata:
+  name: hermes
+spec:
+  promotionFlows:
+    - name: promotion-poc
+      gitTriggerSelectors:
+        - key: commitMessage
+          operator: In
+          values:
+            - '[promote]*'
+  promotionTemplateRef: gitops-platform

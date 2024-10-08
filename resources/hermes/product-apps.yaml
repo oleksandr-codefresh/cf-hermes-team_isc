@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: product-apps
+  labels:
+    codefresh.io/entity: 'git-source'
+    codefresh.io/internal: 'false'
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps.git
+    path: product-apps
+    targetRevision: hermes-prod-git-sources
+    directory:
+      include: '*'
+      exclude: ''
+      recurse: true
+  destination:
+    namespace: hermes
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true

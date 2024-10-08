@@ -15,7 +15,7 @@ spec:
   source:
     directory:
       include: >-
-        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,hermes/cf-gitops-runtime.yaml,runtimes/hermes/**/*.yaml,runtimes/hermes/*.yaml}
+        {all-runtimes-all-clusters/**/*.yaml,all-runtimes-all-clusters/*.yaml,configurations/**/*.yaml,control-planes/**/*.yaml,control-planes/*.yaml,hermes/cf-gitops-runtime.yaml,hermes/product-apps.yaml,hermes/simple-apps.yaml,runtimes/hermes/**/*.yaml,runtimes/hermes/*.yaml}
       recurse: true
     path: resources
     repoURL: https://github.com/oleksandr-codefresh/cf-hermes-team_isc.git

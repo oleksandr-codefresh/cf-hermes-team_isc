@@ -17,3 +17,51 @@ gitops-runtime:
       isConfigurationRuntime: true
   installer:
     skipValidation: true
+  argo-cd:
+    extraObjects:
+      - apiVersion: networking.k8s.io/v1
+        kind: Ingress
+        metadata:
+          annotations:
+            nginx.ingress.kubernetes.io/backend-protocol: HTTP
+          name: argocd-server
+        spec:
+          ingressClassName: nginx-public
+          rules:
+            - host: hermes-team-prod-1.rnd.sandbox.codefresh.io
+              http:
+                paths:
+                  - backend:
+                      service:
+                        name: argo-cd-server
+                        port:
+                          number: 80
+                    path: /argocd
+                    pathType: Prefix
+    configs:
+      params:
+        server.basehref: /argocd # /argocd path
+        server.rootpath: /argocd # /argocd path
+    controller:
+      # image:
+      #   repository: docker.io/pashacodefresh/argocd
+      #   tag: latest
+      replicas: 1
+    server:
+      # image:
+      #   repository: docker.io/pashacodefresh/argocd
+      #   tag: latest
+      replicas: 1
+  app-proxy:
+    replicaCount: 1
+    config:
+      cors: http://local.codefresh.io
+      argoCdUrl: http://argo-cd-server:80/argocd
+    # image:
+    #   tag: 1.2651.0-CR-22513-previous-logs-f9d05aa
+  gitops-operator:
+  # image:
+  #   repository: quay.io/codefresh/codefresh-gitops-operator
+  #   tag: cr-24411-vuln-fixes
+    env:
+      ARGO_CD_URL: argo-cd-server:80/argocd # /argocd path
