@@ -52,6 +52,11 @@ gitops-runtime:
       #   repository: docker.io/pashacodefresh/argocd
       #   tag: latest
       replicas: 1
+    eventReporter:
+      image:
+        repository: xeonalex/personal-argocd-dev
+        tag: 2.12-revisions-15
+      replicas: 1
   app-proxy:
     replicaCount: 1
     config:
