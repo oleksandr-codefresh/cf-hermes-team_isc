@@ -4,7 +4,7 @@ metadata:
   name: test
 spec:
   promotionFlows:
-    - namse: promotion-poc
+    - name: promotion-poc
       gitTriggerSelectors:
         - key: commitMessage
           operator: In
