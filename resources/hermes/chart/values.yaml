@@ -71,9 +71,9 @@ gitops-runtime:
     config:
       cors: https://g.codefresh.io
       argoCdUrl: http://argo-cd-server:80/argocd
-    #image:
-      # repository: quay.io/codefresh/cap-app-proxy
-      # tag: 1.3101.0-CR-25635-security-e87778b
+    image:
+       repository: quay.io/codefresh/cap-app-proxy
+       tag: 1.3101.0-CR-25635-security-e87778b
   gitops-operator:
   # image:
   #   repository: quay.io/codefresh/codefresh-gitops-operator
